@@ -86,6 +86,7 @@ function selectNumber(){
 function selectTile(){
     if(numSelected){
         if(this.classList.contains("unveraenderbar")){ 
+            return;
         }
         this.innerText = numSelected.id;
 
