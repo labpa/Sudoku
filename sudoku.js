@@ -46,29 +46,39 @@ function setGame(){
     // Board 9 * 9
     for(let r = 0; r < 9; r++){
         for(let c = 0; c < 9; c++){
-            let tile = document.createElement("div");
-            tile.id = r.toString() + "-" + c.toString();
+            let kachel = document.createElement("div");
+            kachel.id = r.toString() + "-" + c.toString();
             if(board[r][c] != "-"){
-                tile.innerText = board[r][c];
-                tile.classList.add("tile-style")  
+                kachel.innerText = board[r][c];
+                kachel.classList.add("tile-style")  
             }
             if(r == 2 || r == 5){
-                tile.classList.add("horizontal-line");
+                kachel.classList.add("horizontal-line");
             }
             if(c == 2 || c == 5){
-                tile.classList.add("vertical-line");
+                kachel.classList.add("vertical-line");
             }
-            tile.addEventListener("click", selectTile);
-            tile.classList.add("tile");
-            document.getElementById("board").append(tile);  
+            kachel.addEventListener("click", selectTile);
+            kachel.classList.add("tile");
+            document.getElementById("board").append(kachel);  
         }
     }
+
+    // Button Löschen erstellen
+    let newButton = document.createElement("button");
+    newButton.textContent  = "Neustart";
+    document.getElementById("clear").append(newButton);
+    newButton.addEventListener('click', () => {
+        location.reload();
+      });
+
 }
 
 function selectNumber(){
-    if(numSelected != null){
+   if(numSelected != null){
         numSelected.classList.remove("number-selected");
     }
+    //this = div created setGame() auswahlmöglichkeit zahl 1-9
     numSelected = this;
     numSelected.classList.add("number-selected");
 }
@@ -90,8 +100,19 @@ function selectTile(){
         }
         else{
             errors += 1;
-            document.getElementById("errors").innerText = errors;
+            document.getElementById("errors").innerText = "Fehler: " + errors;
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
 
