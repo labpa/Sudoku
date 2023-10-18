@@ -72,6 +72,25 @@ function setGame(){
     newButton.addEventListener('click', () => {
         location.reload();
       });
+
+      let buttonSend = document.createElement("button");
+      buttonSend.textContent  = "Senden";
+      document.getElementById("clear").append(buttonSend);
+      buttonSend.addEventListener('click', abfrage);
+}
+// erst durch senden button wird korrektheit geprüft. Fehler werden angezeigt
+function abfrage(){
+    //1. finde alle Kacheln
+    var all = document.querySelectorAll(".tile");
+    console.log(all);
+
+    //2. Schleife über alle Kacheln
+    //  for(all){
+
+    //  }
+    //3. Jede Kachel muss identisch sein mit Ergebniss
+    //4. Wenn nicht Fehler +1
+    //5. Ausgabe: if error = 0 Ausgabe Erfolg. Else Ausgabe Fehler
 }
 
 function selectNumber(){
