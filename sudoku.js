@@ -49,8 +49,9 @@ function setGame(){
             let kachel = document.createElement("div");
             kachel.id = r.toString() + "-" + c.toString();
             if(board[r][c] != "-"){
-                kachel.innerText = board[r][c];
-                kachel.classList.add("tile-style")  
+                kachel.innerText = (board[r][c]); 
+                kachel.classList.add("tile-style")
+                kachel.classList.add("unveraenderbar")  
             }
             if(r == 2 || r == 5){
                 kachel.classList.add("horizontal-line");
@@ -71,7 +72,6 @@ function setGame(){
     newButton.addEventListener('click', () => {
         location.reload();
       });
-
 }
 
 function selectNumber(){
@@ -85,8 +85,7 @@ function selectNumber(){
 
 function selectTile(){
     if(numSelected){
-        if(this.innerText != ""){
-            return;
+        if(this.classList.contains("unveraenderbar")){ 
         }
         this.innerText = numSelected.id;
 
